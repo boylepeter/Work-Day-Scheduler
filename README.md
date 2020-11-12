@@ -18,4 +18,4 @@ THEN the saved events persist
 
 
 The finished project will appear as shown below
-![Screenshot](https://user-images.githubusercontent.com/71565378/98892581-a4834180-246e-11eb-8aa1-fb838c337a20.png)
+![Screenshot](./assets/images/Screenshot.png)
