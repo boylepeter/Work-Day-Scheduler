@@ -1,5 +1,7 @@
 # Work-Day-Scheduler
 
+Client asked for a business day planner to facilitate ease of daily activity. To accomplish this we relied upon an index file formatted with Bootstrap, but more heavily on Javascript and JQuery to power that page. Utilizing the styles provided by the client, we have met all client requirements as outlined below:
+
 GIVEN I am using a daily planner to create a schedule
 WHEN I open the planner
 THEN the current day is displayed at the top of the calendar

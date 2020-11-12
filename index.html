@@ -77,70 +77,12 @@
         <input type="text" id="input17" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
-      <div id="row" class="row">
-        <div id="time8" class="col-md-1 hour" data-value="21" class="hour">8:00</div>
-        <input type="text" id="input21" class="col-md-10 time-block"></input>
-        <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
-      </div>
       <hr>
       
       <!-- Timeblocks go here -->
     </div>
 
-    <script>
-    var input = $("#input");
-    var saveBtn = $(".saveBtn");
-    var now = moment().format('H');
-    var hour = $(".hour")
-    var nine = $("#nine")
-    
-    
-    //Test moment time
-    console.log(now)
-    
-    //Establish save button click event
-    
-    $(".saveBtn").on("click", function() {
-    event.preventDefault()
-    var userText = $(this).siblings(".time-block").val()
-    var timeStamp = $(this).siblings(".hour").attr("id")
-    localStorage.setItem(timeStamp, userText)
-    
-    });
-    
-    localStorage.getItem(time9)
-    
-    //Set background/relative time for timeblocks
-    function setTime(i){
-      var currentTime = parseInt(now);
-      var plannerTime = $(i).attr("data-value");                                
-      var inputID = "#input" + plannerTime
-      
-      console.log(plannerTime)
-      if (currentTime > plannerTime){
-        $(inputID).addClass("past")
-      }
-      else if (currentTime == plannerTime){
-        $(inputID).addClass("present")
-      }
-      else {$(inputID).addClass("future")}
-      
-    }
-
-    //compare time within planner to moment.js time
-    var timeBlock = ["#time9", "#time10", "#time11","#time12", "#time1", "#time2", "#time3",
-    "#time4", "#time5", "#time8"];
-    for (var i=0; i < timeBlock.length; i++){
-      console.log(timeBlock[i])
-      setTime(timeBlock[i])
-      
-    }
-    
-    
-    
-
-
-    </script>
+    <script src="script.js"></script>
 
   </body>
 </html>
