@@ -33,53 +33,53 @@
     </header>
     <div class="container"> 
       <div id="row" class="row">
-        <div id="time9" class="col-md-1 hour" data-value="9">9:00</div>
+        <div id="time9" class="col-md-1 hour" data-value="9" class="hour">9:00</div>
         <input type="text" id="input9" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time10" class="col-md-1 hour" data-value="10">10:00</div>
+        <div id="time10" class="col-md-1 hour" data-value="10" class="hour">10:00</div>
         <input type="text" id="input10" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time11" class="col-md-1 hour" data-value="11">11:00</div>
+        <div id="time11" class="col-md-1 hour" data-value="11" class="hour">11:00</div>
         <input type="text" id="input11" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time12" class="col-md-1 hour" data-value="12">12:00</div>
+        <div id="time12" class="col-md-1 hour" data-value="12" class="hour">12:00</div>
         <input type="text" id="input12" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time1" class="col-md-1 hour" data-value="13">1:00</div>
+        <div id="time1" class="col-md-1 hour" data-value="13" class="hour">1:00</div>
         <input type="text" id="input13" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time2" class="col-md-1 hour" data-value="14">2:00</div>
+        <div id="time2" class="col-md-1 hour" data-value="14" class="hour">2:00</div>
         <input type="text" id="input14" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time3" class="col-md-1 hour" data-value="15">3:00</div>
+        <div id="time3" class="col-md-1 hour" data-value="15" class="hour">3:00</div>
         <input type="text" id="input15" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time4" class="col-md-1 hour" data-value="16">4:00</div>
+        <div id="time4" class="col-md-1 hour" data-value="16" class="hour">4:00</div>
         <input type="text" id="input16" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time5" class="col-md-1 hour" data-value="17">5:00</div>
+        <div id="time5" class="col-md-1 hour" data-value="17" class="hour">5:00</div>
         <input type="text" id="input17" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <div id="row" class="row">
-        <div id="time8" class="col-md-1 hour" data-value="18">8:00</div>
-        <input type="text" id="input18" class="col-md-10 time-block"></input>
+        <div id="time8" class="col-md-1 hour" data-value="21" class="hour">8:00</div>
+        <input type="text" id="input21" class="col-md-10 time-block"></input>
         <button data-hover="i:hover" class="btn btn-primary saveBtn" type="submit">Save</button>
       </div>
       <hr>
@@ -99,36 +99,41 @@
     console.log(now)
     
     //Establish save button click event
+    
     $(".saveBtn").on("click", function() {
     event.preventDefault()
-    localStorage.setItem("task", (JSON.stringify(nine)))
+    var userText = $(this).siblings(".time-block").val()
+    var timeStamp = $(this).siblings(".hour").attr("id")
+    localStorage.setItem(timeStamp, userText)
+    
     });
-    //? not saving string input?
+    
+    localStorage.getItem(time9)
     
     //Set background/relative time for timeblocks
     function setTime(i){
       var currentTime = parseInt(now);
       var plannerTime = $(i).attr("data-value");                                
       var inputID = "#input" + plannerTime
-
+      
       console.log(plannerTime)
       if (currentTime > plannerTime){
         $(inputID).addClass("past")
       }
-      if (currentTime === plannerTime){
-        console.log("hi"
-        )
+      else if (currentTime == plannerTime){
         $(inputID).addClass("present")
       }
-      if (currentTime < plannerTime){$(inputID).addClass("future")}
-    
+      else {$(inputID).addClass("future")}
+      
     }
+
+    //compare time within planner to moment.js time
     var timeBlock = ["#time9", "#time10", "#time11","#time12", "#time1", "#time2", "#time3",
     "#time4", "#time5", "#time8"];
     for (var i=0; i < timeBlock.length; i++){
       console.log(timeBlock[i])
       setTime(timeBlock[i])
-
+      
     }
     
     
