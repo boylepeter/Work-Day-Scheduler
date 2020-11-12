@@ -13,3 +13,7 @@ WHEN I click the save button for that time block
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
+
+
+The finished project will appear as shown below
+![Screenshot](https://user-images.githubusercontent.com/71565378/98892581-a4834180-246e-11eb-8aa1-fb838c337a20.png)
